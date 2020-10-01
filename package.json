@@ -1,0 +1,10 @@
+{
+  "name": "@friends-library/manager",
+  "private": true,
+  "scripts": {
+    "link": "lerna link"
+  },
+  "devDependencies": {
+    "lerna": "^3.22.1"
+  }
+}
