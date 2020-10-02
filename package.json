@@ -4,7 +4,15 @@
   "scripts": {
     "link": "lerna link"
   },
-  "devDependencies": {
-    "lerna": "^3.22.1"
+  "dependencies": {
+    "@types/yargs": "^15.0.7",
+    "compare-versions": "^3.6.0",
+    "glob": "^7.1.6",
+    "lerna": "^3.22.1",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.0.3",
+    "x-chalk": "^1.0.1",
+    "x-exec": "^1.0.0",
+    "yargs": "^16.0.3"
   }
 }
