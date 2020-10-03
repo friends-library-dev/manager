@@ -6,7 +6,12 @@
     "**/.cache/": true,
     "**/tsconfig.tsbuildinfo": true,
     "**/package-lock.json": true,
-    "packages/styleguide/src/built-frags.json": true,
-    "packages/styleguide/src/paperback-interior.css": true
+    "libs/*/jest.config.js": true,
+    "libs/dev/.generated.prettierignore": true,
+    "apps/api/.netlify/": true,
+    "apps/api/build/": true,
+    "apps/api/built-functions/": true,
+    "apps/api/src/built-frags.json": true,
+    "apps/styleguide/src/paperback-interior.css": true
   }
 }
