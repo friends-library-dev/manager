@@ -1,6 +1,6 @@
 import { CommandBuilder } from 'yargs';
 
-export const command = `branch`;
+export const command = [`branch`, `br`];
 
 export const describe = `show sub-module git branch`;
 

@@ -1,6 +1,6 @@
 import { CommandBuilder } from 'yargs';
 
-export const command = `status`;
+export const command = [`status`, `s`];
 
 export const describe = `show sub-module git status`;
 
