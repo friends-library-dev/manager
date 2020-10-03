@@ -2,7 +2,7 @@
   "name": "@friends-library/manager",
   "private": true,
   "scripts": {
-    "link": "lerna link",
+    "link": "lerna link --force-local",
     "compile": "tsc -p .",
     "flgit": "node ./dist/git/app.js",
     "dev-flgit": "ts-node ./src/git/app.ts"
