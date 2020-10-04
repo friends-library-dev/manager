@@ -1,6 +1,8 @@
 .DS_Store
 node_modules/
 dist/
+en/
+es/
 .env
 .env.swp
 *.swp

@@ -1,5 +1,9 @@
 {
   "files.exclude": {
+    ".env": true,
+    "en/": true,
+    "es/": true,
+    "**/*.swp": true,
     "**/node_modules/": true,
     "**/dist/": true,
     "**/public/": true,
@@ -12,6 +16,9 @@
     "apps/api/build/": true,
     "apps/api/built-functions/": true,
     "apps/api/src/built-frags.json": true,
-    "apps/styleguide/src/paperback-interior.css": true
+    "apps/styleguide/src/paperback-interior.css": true,
+    "apps/cover-web-app/src/friends.js": true,
+    "apps/storybook-web/storybook-static/": true,
+    "apps/storybook-web/src/stories/books.ts": true
   }
 }
