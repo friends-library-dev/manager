@@ -1,0 +1,5 @@
+alias fl="node ${FLROOT}/apps/cli/dist/app.js ${@}"
+alias fldev="node ${FLROOT}/libs/dev/src/dev.js ${@}"
+alias flgit="node ${FLROOT}/dist/git/app.js ${@}"
+alias fell="node ${FLROOT}/apps/fell/dist/app.js ${@}"
+alias ci="fldev ci"

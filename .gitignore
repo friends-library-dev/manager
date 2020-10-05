@@ -1,8 +1,11 @@
 .DS_Store
 node_modules/
+artifacts/
 dist/
 en/
 es/
+!libs/friends/yml/en
+!libs/friends/yml/es
 .env
 .env.swp
 *.swp
