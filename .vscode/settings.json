@@ -21,6 +21,6 @@
     "apps/styleguide/src/paperback-interior.css": true,
     "apps/cover-web-app/src/friends.js": true,
     "apps/storybook-web/storybook-static/": true,
-    "apps/storybook-web/src/stories/books.ts": true
+    "apps/storybook-web/src/cover/books.ts": true
   }
 }
