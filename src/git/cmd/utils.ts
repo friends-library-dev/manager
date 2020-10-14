@@ -12,7 +12,7 @@ export function getRepos(): Record<string, Repo> {
   const dirs = glob(`${__dirname}/../../../{libs,apps,actions}/*`);
   const map: Record<string, Repo> = {};
   dirs.forEach((dir) => {
-    let name = `@friends-library/${basename(dir)}`;
+    let name = `actions/${basename(dir)}`;
     if (fs.existsSync(`${dir}/package.json`)) {
       const pkgJson = JSON.parse(fs.readFileSync(`${dir}/package.json`, `utf8`));
       name = pkgJson.name as string;
@@ -24,4 +24,8 @@ export function getRepos(): Record<string, Repo> {
 
 export function statusClean(path: string): boolean {
   return exec.success(`git diff-index --quiet HEAD --`, path);
+}
+
+export function gitBranch(path: string): string {
+  return exec.exit(`git rev-parse --symbolic-full-name --abbrev-ref HEAD`, path).trim();
 }

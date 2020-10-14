@@ -19,7 +19,7 @@ export default async function handler(): Promise<void> {
   repos = repos.filter((r) => r.name !== `manager`);
   let numSkipped = 0;
 
-  for (const repo of repos) {
+  const promises = repos.map(async (repo) => {
     const slug = repo.name;
     const cloneUrl = repo.ssh_url;
     let dir = slug;
@@ -41,11 +41,13 @@ export default async function handler(): Promise<void> {
       log(
         c`📡 {grey Cloning missing pkg} {magenta ${slug}} {grey into dir} {cyan ${gitDir}}`,
       );
-      exec.exit(`git clone ${cloneUrl} ${gitDir}`);
+      await exec.async.exit(`git clone ${cloneUrl} ${gitDir}`);
     } else {
       numSkipped++;
     }
-  }
+  });
+
+  await Promise.all(promises);
 
   if (numSkipped !== repos.length) {
     log(``); // newline for aesthetics
