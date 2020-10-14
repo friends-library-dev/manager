@@ -10,9 +10,14 @@
     "lint:fix": "npm run lint -- --fix",
     "ts:check": "tsc --noEmit -p .",
     "compile": "tsc -p .",
-    "link": "lerna link --force-local",
     "flgit": "node ./dist/git/app.js",
-    "dev-flgit": "ts-node ./src/git/app.ts"
+    "dev-flgit": "ts-node ./src/git/app.ts",
+    "p:link": "lerna link --force-local",
+    "p:clone": "npm run flgit -- clone",
+    "p:install": "lerna exec -- npm install",
+    "p:compile": "lerna exec -- npm run compile",
+    "prepull": "git pull --rebase origin master && npm i && npm run compile",
+    "pull": "npm run p:clone && npm run p:install && npm run p:compile"
   },
   "dependencies": {
     "@types/node-fetch": "^2.5.7",
