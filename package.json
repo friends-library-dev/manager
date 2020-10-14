@@ -2,7 +2,10 @@
   "name": "@friends-library/manager",
   "private": true,
   "scripts": {
+    "test": "true",
     "link": "lerna link --force-local",
+    "lint": "fldev lint --ignore-pattern apps/ --ignore-pattern libs/ --ignore-pattern actions/",
+    "lint:fix": "npm run lint -- --fix",
     "ts:check": "tsc --noEmit -p .",
     "compile": "tsc -p .",
     "flgit": "node ./dist/git/app.js",
