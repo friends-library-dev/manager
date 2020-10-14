@@ -21,6 +21,10 @@
     "apps/styleguide/src/paperback-interior.css": true,
     "apps/cover-web-app/src/friends.js": true,
     "apps/storybook-web/storybook-static/": true,
-    "apps/storybook-web/src/cover/books.ts": true
+    "apps/storybook-web/src/cover/books.ts": true,
+    "apps/evans/src/build/.dpc-cache.json": true,
+    "apps/evans/src/css/cover.css": true,
+    "apps/evans/functions": true,
+    "apps/native/index.js": true
   }
 }
