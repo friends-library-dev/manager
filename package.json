@@ -9,10 +9,13 @@
     "dev-flgit": "ts-node ./src/git/app.ts"
   },
   "dependencies": {
+    "@types/node-fetch": "^2.5.7",
     "@types/yargs": "^15.0.7",
     "compare-versions": "^3.6.0",
+    "dotenv": "^8.2.0",
     "glob": "^7.1.6",
     "lerna": "^3.22.1",
+    "node-fetch": "^2.6.1",
     "ts-node": "^9.0.0",
     "typescript": "^4.0.3",
     "x-chalk": "^1.0.1",

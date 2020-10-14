@@ -1,4 +1,5 @@
 import fs from 'fs';
+import { basename } from 'path';
 import exec from 'x-exec';
 import { sync as glob } from 'glob';
 
@@ -8,11 +9,14 @@ export interface Repo {
 }
 
 export function getRepos(): Record<string, Repo> {
-  const dirs = glob(`${__dirname}/../../../{libs,apps}/*`);
+  const dirs = glob(`${__dirname}/../../../{libs,apps,actions}/*`);
   const map: Record<string, Repo> = {};
   dirs.forEach((dir) => {
-    const pkgJson = JSON.parse(fs.readFileSync(`${dir}/package.json`, `utf8`));
-    const name = pkgJson.name as string;
+    let name = `@friends-library/${basename(dir)}`;
+    if (fs.existsSync(`${dir}/package.json`)) {
+      const pkgJson = JSON.parse(fs.readFileSync(`${dir}/package.json`, `utf8`));
+      name = pkgJson.name as string;
+    }
     map[name] = { path: dir, name };
   });
   return map;
