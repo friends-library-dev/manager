@@ -14,10 +14,11 @@
     "dev-flgit": "ts-node ./src/git/app.ts",
     "p:link": "lerna link --force-local",
     "p:clone": "npm run flgit -- clone",
+    "p:sync": "npm run flgit -- sync",
     "p:install": "lerna exec -- npm install",
     "p:compile": "lerna exec -- npm run compile",
     "prepull": "git pull --rebase origin master && npm i && npm run compile",
-    "pull": "npm run p:clone && npm run p:install && npm run p:compile"
+    "pull": "npm run p:clone && npm run p:sync && npm run p:install && npm run p:compile"
   },
   "dependencies": {
     "@types/node-fetch": "^2.5.7",
