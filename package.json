@@ -15,11 +15,11 @@
     "p:link": "lerna link --force-local",
     "p:clone": "npm run flgit -- clone",
     "p:sync": "npm run flgit -- sync",
-    "p:install": "lerna exec -- npm install",
+    "p:install": "lerna exec -- npm ci",
     "p:compile": "lerna exec -- npm run compile",
     "fell:pull": "cd ./apps/fell && npm run fell -- clone && npm run fell -- sync",
     "prepull": "git pull --rebase origin master && npm i && npm run compile",
-    "pull": "npm run p:clone && npm run p:sync && npm run p:install && npm run p:compile && fell:pull"
+    "pull": "npm run p:clone && npm run p:sync && npm run p:install && npm run p:compile && npm run fell:pull"
   },
   "dependencies": {
     "@types/node-fetch": "^2.5.7",
