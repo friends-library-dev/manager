@@ -15,7 +15,7 @@
     "p:link": "lerna link --force-local",
     "p:clone": "npm run flgit -- clone",
     "p:sync": "npm run flgit -- sync",
-    "p:install": "lerna exec -- npm ci",
+    "p:install": "lerna exec -- npm install --no-save",
     "p:compile": "lerna exec -- npm run compile",
     "fell:pull": "cd ./apps/fell && npm run fell -- clone && npm run fell -- sync",
     "prepull": "git pull --rebase origin master && npm i && npm run compile",
