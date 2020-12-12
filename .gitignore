@@ -4,6 +4,7 @@ artifacts/
 dist/
 en/
 es/
+design/
 !libs/friends/yml/en
 !libs/friends/yml/es
 .env

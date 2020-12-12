@@ -3,6 +3,7 @@
     ".env": true,
     "en/": true,
     "es/": true,
+    "design/": true,
     "artifacts/": true,
     "**/*.swp": true,
     "**/node_modules/": true,
@@ -24,7 +25,9 @@
     "apps/storybook-web/src/cover/books.ts": true,
     "apps/evans/src/build/.dpc-cache.json": true,
     "apps/evans/src/css/cover.css": true,
+    "actions/ts-pack/actions/**/bundled/": true,
     "apps/evans/functions": true,
-    "apps/native/index.js": true
+    "apps/native/index.js": true,
+    "libs/friends/query.d.ts": true
   }
 }
