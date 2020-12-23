@@ -16,7 +16,7 @@ export default async function handler(): Promise<void> {
   const uri = `https://api.github.com/orgs/${ORG}/repos?per_page=100`;
   const res = await fetch(uri, { headers });
   let repos: { name: string; ssh_url: string }[] = await res.json();
-  repos = repos.filter((r) => r.name !== `manager`);
+  repos = repos.filter((r) => r.name !== `manager` && r.name !== `design-assets`);
   let numSkipped = 0;
 
   const promises = repos.map(async (repo) => {
@@ -32,7 +32,10 @@ export default async function handler(): Promise<void> {
       const pkgJsonUrl = `https://raw.githubusercontent.com/${ORG}/${slug}/master/package.json`;
       const res = await fetch(pkgJsonUrl, { headers });
       const pkgJson = JSON.parse(await res.text());
-      subDir = pkgJson.private === true ? `apps` : `libs`;
+      subDir =
+        pkgJson.private === true || pkgJson.name === `@friends-library/api`
+          ? `apps`
+          : `libs`;
     }
 
     const path = `${__dirname}/../../../../${subDir}/${dir}`;
