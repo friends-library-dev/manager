@@ -27,6 +27,10 @@
     "apps/evans/src/css/cover.css": true,
     "actions/ts-pack/actions/**/bundled/": true,
     "apps/evans/functions": true,
+    "apps/native/android/.gradle/": true,
+    "apps/native/android/build": true,
+    "apps/native/android/app/build": true,
+    "apps/native/android/app/src/main/**/*": true,
     "apps/native/index.js": true,
     "libs/friends/query.d.ts": true
   }
