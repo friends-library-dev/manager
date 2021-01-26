@@ -16,6 +16,7 @@
     "p:clone": "npm run flgit -- clone",
     "p:sync": "npm run flgit -- sync",
     "p:install": "lerna exec -- npm install --no-save",
+    "prep:compile": "cd ./libs/friends && npm run generate:js-map",
     "p:compile": "lerna exec -- npm run compile",
     "fell:pull": "cd ./apps/fell && npm run fell -- clone && npm run fell -- sync",
     "prepull": "git pull --rebase origin master && npm i && npm run compile",
