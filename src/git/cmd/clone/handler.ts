@@ -25,6 +25,10 @@ export default async function handler(): Promise<void> {
     let dir = slug;
     let subDir: RepoType = `libs`;
 
+    if (DEPRECATED_PACKAGES.includes(slug)) {
+      return;
+    }
+
     if (slug.startsWith(`action`)) {
       subDir = `actions`;
       dir = slug.replace(/^action-/, ``);
@@ -60,3 +64,5 @@ export default async function handler(): Promise<void> {
     log(c`👌 Skipped {green ${numSkipped}} repos already cloned.\n`);
   }
 }
+
+const DEPRECATED_PACKAGES = [`adoc-convert`, `doc-html`];
