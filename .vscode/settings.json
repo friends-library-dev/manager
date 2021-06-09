@@ -27,6 +27,7 @@
     "apps/evans/src/css/cover.css": true,
     "actions/ts-pack/actions/**/bundled/": true,
     "apps/evans/functions": true,
+    "apps/native/ios/Pods/": true,
     "apps/native/android/.gradle/": true,
     "apps/native/android/build": true,
     "apps/native/android/app/build": true,
