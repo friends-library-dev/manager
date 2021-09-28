@@ -4,6 +4,7 @@
     "en/": true,
     "es/": true,
     "design/": true,
+    "audios/": true,
     "artifacts/": true,
     "**/*.swp": true,
     "**/node_modules/": true,
@@ -17,6 +18,7 @@
     "libs/dev/.generated.prettierignore": true,
     "apps/api/.netlify/": true,
     "apps/api/build/": true,
+    "apps/orders/build/": true,
     "apps/api/built-functions/": true,
     "apps/api/src/built-frags.json": true,
     "apps/styleguide/src/paperback-interior.css": true,
@@ -33,6 +35,9 @@
     "apps/native/android/app/build": true,
     "apps/native/android/app/src/main/**/*": true,
     "apps/native/index.js": true,
+    "apps/native/ios/main.jsbundle": true,
+    "apps/graphql-api/.build": true,
+    "apps/graphql-api/.swiftpm": true,
     "libs/friends/query.d.ts": true
   }
 }
