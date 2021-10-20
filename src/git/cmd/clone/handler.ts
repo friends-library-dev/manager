@@ -16,7 +16,9 @@ export default async function handler(): Promise<void> {
   const uri = `https://api.github.com/orgs/${ORG}/repos?per_page=100`;
   const res = await fetch(uri, { headers });
   let repos: { name: string; ssh_url: string }[] = await res.json();
-  repos = repos.filter((r) => r.name !== `manager` && r.name !== `design-assets`);
+  repos = repos.filter(
+    (r) => r.name !== `manager` && r.name !== `design-assets`
+  );
   let numSkipped = 0;
 
   const promises = repos.map(async (repo) => {
@@ -25,7 +27,7 @@ export default async function handler(): Promise<void> {
     let dir = slug;
     let subDir: RepoType = `libs`;
 
-    if (DEPRECATED_PACKAGES.includes(slug)) {
+    if (IGNORED_REPOS.includes(slug)) {
       return;
     }
 
@@ -35,7 +37,14 @@ export default async function handler(): Promise<void> {
     } else {
       const pkgJsonUrl = `https://raw.githubusercontent.com/${ORG}/${slug}/master/package.json`;
       const res = await fetch(pkgJsonUrl, { headers });
-      const pkgJson = JSON.parse(await res.text());
+      const text = await res.text();
+      try {
+        var pkgJson = JSON.parse(text);
+      } catch (err) {
+        console.error(`Error fetching package.json for ${ORG}/${slug}`, err);
+        console.error(`Raw response text was: ${text}`);
+        process.exit(1);
+      }
       subDir =
         pkgJson.private === true || pkgJson.name === `@friends-library/api`
           ? `apps`
@@ -46,7 +55,7 @@ export default async function handler(): Promise<void> {
     if (!fs.existsSync(path)) {
       const gitDir = `${subDir}/${dir}`;
       log(
-        c`📡 {grey Cloning missing pkg} {magenta ${slug}} {grey into dir} {cyan ${gitDir}}`,
+        c`📡 {grey Cloning missing pkg} {magenta ${slug}} {grey into dir} {cyan ${gitDir}}`
       );
       await exec.async.exit(`git clone ${cloneUrl} ${gitDir}`);
     } else {
@@ -65,4 +74,12 @@ export default async function handler(): Promise<void> {
   }
 }
 
-const DEPRECATED_PACKAGES = [`adoc-convert`, `doc-html`];
+const IGNORED_REPOS = [
+  // deprecated
+  `adoc-convert`,
+  `doc-html`,
+  `friends-library`, // old monorepo
+
+  // issues-only
+  `issues`,
+];
