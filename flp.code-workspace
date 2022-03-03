@@ -1,0 +1,44 @@
+{
+  "folders": [
+    {
+      "name": "api",
+      "path": "apps/api"
+    },
+    {
+      "name": "admin",
+      "path": "apps/admin"
+    },
+    {
+      "path": "apps/evans"
+    },
+    {
+      "path": "actions/do-spaces-upload"
+    },
+    {
+      "path": "apps/cron"
+    },
+    {
+      "path": "actions/ts-pack"
+    },
+    {
+      "path": "libs/cloud"
+    },
+    {
+      "path": "apps/cli"
+    },
+    {
+      "path": "apps/fell"
+    }
+  ],
+  "settings": {
+    "files.exclude": {
+      "**/node_modules/": true,
+      "**/jest.config.js": true,
+      "**/.cache/": true,
+      "**/dist/": true,
+      "**/.dpc-cache.json": true,
+      "**/public/": true,
+      "**/actions/*/bundled/": true
+    }
+  }
+}
