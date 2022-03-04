@@ -28,6 +28,21 @@
     },
     {
       "path": "apps/fell"
+    },
+    {
+      "path": "libs/db"
+    },
+    {
+      "path": "apps/storybook-web"
+    },
+    {
+      "path": "libs/locale"
+    },
+    {
+      "path": "libs/dpc-fs"
+    },
+    {
+      "path": "apps/cover-web-app"
     }
   ],
   "settings": {
