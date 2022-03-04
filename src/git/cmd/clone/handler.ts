@@ -15,9 +15,10 @@ export default async function handler(): Promise<void> {
   const ORG = `friends-library-dev`;
   const uri = `https://api.github.com/orgs/${ORG}/repos?per_page=100`;
   const res = await fetch(uri, { headers });
-  let repos: { name: string; ssh_url: string }[] = await res.json();
+  let repos: Array<{ name: string; ssh_url: string; archived: boolean }> =
+    await res.json();
   repos = repos.filter(
-    (r) => r.name !== `manager` && r.name !== `design-assets`
+    (r) => r.name !== `manager` && r.name !== `design-assets` && !r.archived,
   );
   let numSkipped = 0;
 
@@ -55,7 +56,7 @@ export default async function handler(): Promise<void> {
     if (!fs.existsSync(path)) {
       const gitDir = `${subDir}/${dir}`;
       log(
-        c`📡 {grey Cloning missing pkg} {magenta ${slug}} {grey into dir} {cyan ${gitDir}}`
+        c`📡 {grey Cloning missing pkg} {magenta ${slug}} {grey into dir} {cyan ${gitDir}}`,
       );
       await exec.async.exit(`git clone ${cloneUrl} ${gitDir}`);
     } else {
